@@ -78,15 +78,5 @@ node {
             sh 'docker push trydocker29/eureka-service:prod'
                     
         }
-    
-     /*   stage('--test--') {
-            steps {
-                sh "mvn test"
-            }
-        }
-        stage('--package--') {
-            steps {
-                sh "mvn package"
-            }
-        }*/
+        
 }
