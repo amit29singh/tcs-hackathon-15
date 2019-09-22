@@ -69,7 +69,7 @@ node {
             
         }
         
-        stage(Publish image to Nexus){
+        stage('Publish image to Nexus'){
                 echo "Publishing image"
         }
     
