@@ -1,5 +1,4 @@
 node {
-        def app
         stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
         checkout scm
@@ -12,7 +11,7 @@ node {
        def mvnHome = tool name: 'localmaven' , type: 'maven'
        withSonarQubeEnv('sonarqube') {
        sh "${mvnHome}/bin/mvn sonar:sonar"
-       //sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+       
     }
   }
 
@@ -23,9 +22,6 @@ node {
        sh 'docker build -t trydocker29/eureka-service:prod ./eureka-server'
       }
         
-    /*stage('Publish') {
-     nexusPublisher nexusInstanceId: 'TCS_Hackathon_15', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/TCS_Hackathon_15/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'spring-cloud-eureka-example', groupId: 'org.exampledriven', packaging: 'jar', version: '0.0.1-SNAPSHOT']]]
-   }*/
         stage('Publish Jar to Nexus') {
                 
                 script {
@@ -73,9 +69,8 @@ node {
                 echo "Publishing image"
                 withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dockerHubPwd')]) {
                  sh "docker login -u trydocker29 -p ${dockerHubPwd}" 
-            }
-            //app.push("${env.BUILD_NUMBER}")
-            sh 'docker push trydocker29/eureka-service:prod'
+              }
+                 sh 'docker push trydocker29/eureka-service:prod'
                     
         }
         
