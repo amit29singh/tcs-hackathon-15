@@ -47,7 +47,7 @@ node {
                             nexusUrl: '104.197.71.163:8081',
                             groupId: pom.groupId,
                             version: pom.version ,
-                            repository: 'release1',
+                            repository: 'release',
                                 credentialsId: 'nexus-login',
                             artifacts: [
                                 // Artifact generated such as .jar, .ear and .war files.
