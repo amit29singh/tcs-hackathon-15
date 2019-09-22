@@ -48,7 +48,7 @@ node {
                             groupId: pom.groupId,
                             version: pom.version ,
                             repository: 'release',
-                                credentialsId: nexus-login,
+                                credentialsId: 'nexus-login',
                             artifacts: [
                                 // Artifact generated such as .jar, .ear and .war files.
                                 [artifactId: pom.artifactId,
