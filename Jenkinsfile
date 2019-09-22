@@ -32,7 +32,7 @@ node {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
                     pom = readMavenPom file: "./eureka-server/pom.xml";
                     // Find built artifact under target folder
-                    filesByGlob = findFiles(glob: "target/*.jar");
+                    filesByGlob = findFiles(glob: "eureka-server/target/*.jar");
                     // Print some info from the artifact found
                     echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
