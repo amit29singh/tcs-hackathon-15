@@ -71,10 +71,12 @@ node {
         
         stage('Publish image to Nexus'){
                 echo "Publishing image"
-                docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+                withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dockerHubPwd')]) {
+                 sh "docker login -u trydocker29 -p ${dockerHubPwd}" 
+            }
             //app.push("${env.BUILD_NUMBER}")
             sh 'docker push trydocker29/eureka-service:prod'
-                    }
+                    
         }
     
      /*   stage('--test--') {
