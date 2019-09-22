@@ -26,7 +26,7 @@ node {
     /*stage('Publish') {
      nexusPublisher nexusInstanceId: 'TCS_Hackathon_15', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/var/lib/jenkins/workspace/TCS_Hackathon_15/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'spring-cloud-eureka-example', groupId: 'org.exampledriven', packaging: 'jar', version: '0.0.1-SNAPSHOT']]]
    }*/
-        stage('Publish') {
+        stage('Publish Jar to Nexus') {
                 
                 script {
                     // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
@@ -67,6 +67,10 @@ node {
                     }
                 }
             
+        }
+        
+        stage(Publish image to Nexus){
+                echo "Publishing image"
         }
     
      /*   stage('--test--') {
