@@ -53,7 +53,7 @@ node {
                                 // Artifact generated such as .jar, .ear and .war files.
                                 [artifactId: pom.artifactId,
                                 classifier: '',
-                                 file: ${artifactPath},
+                                 file: "${artifactPath}",
                                 type: 'jar'],
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
                                 [artifactId: pom.artifactId,
