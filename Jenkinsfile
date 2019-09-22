@@ -42,19 +42,19 @@ node {
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
                         nexusArtifactUploader(
-                            nexusVersion: nexus3,
-                            protocol: http,
+                            nexusVersion: 'nexus3',
+                            protocol: 'http',
                             nexusUrl: '104.197.71.163:8081',
                             groupId: pom.groupId,
                             version: '${BUILD_NUMBER}',
-                            repository: release,
+                            repository: 'release',
                             credentialsId: '003a7a3f-9533-3504-bc59-860f1d154ba3',
                             artifacts: [
                                 // Artifact generated such as .jar, .ear and .war files.
                                 [artifactId: pom.artifactId,
                                 classifier: '',
-                                file: artifactPath,
-                                type: jar],
+                                 file: ${artifactPath},
+                                type: 'jar'],
                                 // Lets upload the pom.xml file for additional information for Transitive dependencies
                                 [artifactId: pom.artifactId,
                                 classifier: '',
