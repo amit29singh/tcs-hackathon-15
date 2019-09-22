@@ -46,7 +46,7 @@ node {
                             protocol: 'http',
                             nexusUrl: '104.197.71.163:8081',
                             groupId: pom.groupId,
-                            version: ${pom.version} ,
+                            version: pom.version ,
                             repository: 'release',
                             credentialsId: '003a7a3f-9533-3504-bc59-860f1d154ba3',
                             artifacts: [
