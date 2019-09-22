@@ -16,5 +16,18 @@
         <module>customer-client-service</module>
         <module>eureka-server</module>
     </modules>
+    
+    <distributionManagement>
+  <repository>
+    <id>release</id>
+    <name>release</name>
+    <url>http://104.197.71.163:8081/repository/release/</url>
+  </repository>
+  <snapshotRepository>
+    <id>snapshots</id>
+    <name>snapshots</name>
+    <url>http://104.197.71.163:8081/repository/maven-snapshots/</url>
+  </snapshotRepository>
+</distributionManagement>
 
 </project>
