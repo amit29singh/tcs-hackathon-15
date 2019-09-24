@@ -40,7 +40,7 @@ node {
                         nexusArtifactUploader(
                             nexusVersion: 'nexus3',
                             protocol: 'http',
-                            nexusUrl: '104.197.71.163:8081',
+                            nexusUrl: '35.238.136.209:8081',
                             groupId: pom.groupId,
                             version: pom.version ,
                             repository: 'release',
